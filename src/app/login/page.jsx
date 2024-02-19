@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div className='min-h-[100vh] bg-white text-black pt-[150px] px-3'>
       <div className='max-w-[700px] mx-auto flex flex-col border-[1px] rounded-lg p-4'>
@@ -21,6 +21,6 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
 // first name, last name,
 // email, password, confirm password, 
