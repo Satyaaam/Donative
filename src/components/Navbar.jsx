@@ -6,10 +6,10 @@ import { RxCross2 } from "react-icons/rx";
 
 const navbarLinks = [
   { name: "Home", url: "/" },
-  { name: "Accounts", url: "/accounts" },
-  {name:"About Us", url:"/aboutus"},
-  { name: "Blogs", url: "/blogs" },
-  { name: "FAQ", url: "/faq" },
+  { name: "Add Fundraiser", url: "/addfundraiser" },
+  {name:"My Fundraiser", url:"/myfundraiser"},
+  { name: "Login", url: "/login" },
+  { name: "Signup", url: "/signup" },
 ];
 
 const Navbar = () => {
