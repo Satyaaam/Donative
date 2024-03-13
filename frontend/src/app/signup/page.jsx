@@ -3,6 +3,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendEmailVerification,
+  actionCodeSettings,
+} from "firebase/auth";
+import { app } from "@/firbase/config";
+import { getFirestore, collection, getDoc, addDoc } from "firebase/firestore";
 
 const Page = () => {
   const [firstName, setFirstName] = useState("");
@@ -10,12 +18,52 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const handleSubmit = () => {
-    // console.log(firstName, lastName, email, password, confirmPassword);
-    if(!firstName || !lastName || !email || !password || !confirmPassword){
-      return toast.error("Please fill all the fields")
+  const [loading, setLoading] = useState(false);
+
+  const auth = getAuth(app);
+  const firestore = getFirestore(app);
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    try {
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        return toast.error("Please fill all the fields");
+      }
+      if (password !== confirmPassword) {
+        return toast.error("Password and confirm password are not matching.");
+      }
+
+      const userCredentials = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(userCredentials);
+
+      const user = userCredentials.user;
+
+      const userDocRef = await addDoc(collection(firestore, "users"), {
+        userId: user.uid,
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+
+      await sendEmailVerification(auth.currentUser, actionCodeSettings);
+
+      console.log("user created successfully", userDocRef);
+      toast.success(
+        `welcome, ${firstName} ${lastName}! you have successfully created your account.`
+      );
+    } catch (err) {
+      console.log(err);
+      toast.error(
+        "error occured while creating user, try again later after some time."
+      );
+    } finally {
+      setLoading(false);
     }
-    toast.success("sign up button pressed")
   };
 
   return (
@@ -77,7 +125,7 @@ const Page = () => {
             onClick={handleSubmit}
             className="mt-4 w-fit mx-auto bg-green-800 text-white px-6 py-2 text-[1.15rem rounded-lg"
           >
-            Sign up
+            {loading ? "loading..." : "Sign up"}
           </button>
           <Link
             href={"/login"}
