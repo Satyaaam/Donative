@@ -75,7 +75,7 @@ const Navbar = () => {
             })}
           </div>
           <div className="md:hidden flex items-center">
-            <RxHamburgerMenu size={25} color="#fff" onClick={handleOpen} />
+            <RxHamburgerMenu size={25} color="#000" onClick={handleOpen} />
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
         } flex flex-col gap-4 text-xl items-center justify-center absolute z-[100]  text-black right-0 top-0 bottom-0 left-0 transition-all duration-500 backdrop-blur-lg`}
       >
         <div className="absolute right-6 top-8">
-          <RxCross2 size={27} color="#fff" onClick={handleOpen} />
+          <RxCross2 size={27} color="#000" onClick={handleOpen} />
         </div>
         {navbarLinks.map((item, index) => {
           return (

@@ -238,7 +238,7 @@ export default function Home() {
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center gap-8 p-4">
-          <img
+          <Image
             src="/placeholder.svg"
             alt="Placeholder"
             class="h-72 w-72 bg-gray-300"
@@ -419,7 +419,7 @@ export default function Home() {
           </div>
           <div class="mt-12 grid gap-8 lg:grid-cols-3">
             <div class="flex flex-col">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt=""
                 class="h-64 w-full object-cover"
@@ -465,7 +465,7 @@ export default function Home() {
               </div>
             </div>
             <div class="flex flex-col">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt=""
                 class="h-64 w-full object-cover"
@@ -511,7 +511,7 @@ export default function Home() {
               </div>
             </div>
             <div class="flex flex-col">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt=""
                 class="h-64 w-full object-cover"
