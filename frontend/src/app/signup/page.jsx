@@ -123,7 +123,7 @@ const Page = () => {
 
           <button
             onClick={handleSubmit}
-            className="mt-4 w-fit mx-auto bg-green-800 text-white px-6 py-2 text-[1.15rem rounded-lg"
+            className="mt-4 w-fit mx-auto bg-black text-white px-6 py-2 text-[1.15rem rounded-lg"
           >
             {loading ? "loading..." : "Sign up"}
           </button>

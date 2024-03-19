@@ -7,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 const navbarLinks = [
   { name: "Home", url: "/" },
   { name: "Add Fundraiser", url: "/addfundraiser" },
-  {name:"My Fundraiser", url:"/myfundraiser"},
+  { name: "My Fundraiser", url: "/myfundraiser" },
   { name: "Login", url: "/login" },
   { name: "Signup", url: "/signup" },
 ];
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const handleOpen = () => {
     setOpen(!isOpen);
-    console.log("isopen ", isOpen)
+    console.log("isopen ", isOpen);
   };
 
   useEffect(() => {
@@ -53,8 +53,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className="overflow-x-hidden z-10 bg-green-800 ">
-      <div className="absolute left-0 right-0  z-10 text-white bg-green-800  backdrop-blur-lg">
+    <div className="overflow-x-hidden z-10 ">
+      <div className="absolute left-0 right-0  z-10 text-black  backdrop-blur-lg">
         <div
           className={
             "max-w-[1280px] h-[90px] flex justify-between sm:px-12 px-7 items-center bg-transparent mx-auto"
@@ -82,7 +82,7 @@ const Navbar = () => {
       <div
         className={`${
           isOpen ? "translate-y-0" : "translate-y-[-100%]"
-        } flex flex-col gap-4 text-xl items-center justify-center absolute z-[100]  text-white right-0 top-0 bottom-0 left-0 transition-all duration-500 backdrop-blur-lg`}
+        } flex flex-col gap-4 text-xl items-center justify-center absolute z-[100]  text-black right-0 top-0 bottom-0 left-0 transition-all duration-500 backdrop-blur-lg`}
       >
         <div className="absolute right-6 top-8">
           <RxCross2 size={27} color="#fff" onClick={handleOpen} />
